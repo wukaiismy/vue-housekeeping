@@ -2,8 +2,6 @@
 
 ### 自制家政 APP
 
-#### 一点一点更新
-
 #### 项目地址：https://github.com/wukaiismy/vue-housekeeping
 
 ---
