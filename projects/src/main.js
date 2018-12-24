@@ -15,11 +15,13 @@ import $ from "jquery";
 import store from "./store";
 import "./permission";
 import MuseUI from "muse-ui";
+
 import "muse-ui/dist/muse-ui.css";
 import "muse-ui-loading/dist/muse-ui-loading.css"; // load css
 import Loading from "muse-ui-loading";
 import * as NumFormat from "./common/filters/NumFormat";
 Vue.use(MuseUI);
+
 Vue.use(Loading);
 Vue.config.productionTip = false;
 

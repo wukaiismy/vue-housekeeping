@@ -1,18 +1,86 @@
 <template>
   <div class="HomeBox">
-    <!-- 这是主页 -->
-    <!-- 导航 -->
-    <div class="navLogin">demo</div>
+    <NavBack name="首页" @backjump="backjump"/>
+    <div class="searchBox">
+      <mu-carousel hide-controls>
+        <mu-carousel-item>
+          <img :src="carouselImg1" class="imgBanners">
+        </mu-carousel-item>
+        <mu-carousel-item>
+          <img :src="carouselImg2" class="imgBanners">
+        </mu-carousel-item>
+        <mu-carousel-item>
+          <img :src="carouselImg3" class="imgBanners">
+        </mu-carousel-item>
+      </mu-carousel>
+    </div>
+    <!-- 搜索框 -->
+    <div class="bigBoxSearch">
+      <mu-text-field v-model="value1"></mu-text-field>
+      <div class="icon-container">
+        <mu-icon value=" youtube_searched_for" color="amber" @click="searchs"></mu-icon>
+      </div>
+    </div>
+    <!-- 快速下单按钮 -->
+    <div class="quekBox" v-waves @click="jumpMsg">快速下单</div>
+    <!-- 下面是菜单部分 -->
+    <div class="showServer">
+      <mu-row>
+        <mu-col span="4" v-for="(msg, ind) in dataList" :key="ind">
+          <div class="grid-cell" v-waves @click="jumpServer(ind)">
+            <img class="imgServe" :src="msg.imgurl" alt>
+            <div class="titleName">{{msg.msg}}</div>
+          </div>
+        </mu-col>
+      </mu-row>
+    </div>
+    <!-- 灰色线 -->
+    <div class="gaids"></div>
+    <div class="anotherBox">
+      <div class="rightTitle">生活新闻</div>
+      <div class="lightTitle">附近分享</div>
+      <div class="garid1"></div>
+    </div>
+    <!-- 底部组件 -->
+    <Foot/>
   </div>
 </template>
 
 <script>
+import carouselImg1 from "../assets/B1.jpg";
+import carouselImg2 from "../assets/b2.jpg";
+import carouselImg3 from "../assets/b3.jpg";
+import img1 from "../assets/home/fuwuxiangmu.png";
+import img2 from "../assets/home/shequ.png";
+import img3 from "../assets/home/baike.png";
+import img4 from "../assets/home/wenxue.png";
+import img5 from "../assets/home/liuyanban.png";
+import img6 from "../assets/home/more.png";
+import Foot from "./public/FootNavigation";
+import waves from "@/directive/waves"; // 水波纹指令
+import NavBack from "./public/NavBack";
 import { mapGetters } from "vuex";
 
 export default {
   name: "Homepage",
+  directives: {
+    waves
+  },
   data() {
-    return {};
+    return {
+      value1: "",
+      carouselImg1,
+      carouselImg2,
+      carouselImg3,
+      dataList: [
+        { imgurl: img1, msg: "家庭服务" },
+        { imgurl: img2, msg: "囧囧社区" },
+        { imgurl: img3, msg: "囧事百科" },
+        { imgurl: img4, msg: "文学港湾" },
+        { imgurl: img5, msg: "疯言墙" },
+        { imgurl: img6, msg: "更多" }
+      ]
+    };
   },
   computed: {
     ...mapGetters(["roles", "name", "ids", "avatar", "power"])
@@ -22,9 +90,49 @@ export default {
   },
   mounted() {},
 
-  methods: {},
+  methods: {
+    backjump() {
+      this.$router.push({
+        path: "/"
+      });
+    },
+    searchs() {
+      console.log("你点击了搜索按钮");
+      console.log(this.value1);
+    },
+    // 快速下单
+    jumpMsg() {
+      console.log("你点击了快速下单");
+    },
+    // 菜单选择
+    jumpServer(index) {
+      console.log(index);
+      // 如果用户未注册就无法点击
+      if (this.roles) {
+        return;
+      }
+      if (index == 0) {
+        // this.$router.push({
+        //   path: "/AddCards"
+        // });
+      } else if (index == 2) {
+        // this.$router.push({
+        //   path: "/SaleAfter"
+        // });
+      } else if (index == 3) {
+        console.log("押金暂不做");
+        // this.$router.push({
+        //   path: "/Cash"
+        // });
+      } else if (index == 4) {
+        this.$router.push({
+          path: "/MsgList"
+        });
+      }
+    }
+  },
   destroyed() {},
-  components: {}
+  components: { Foot, NavBack }
 };
 </script>
 
@@ -41,310 +149,135 @@ export default {
   height: 0.88rem;
   line-height: 0.88rem;
   letter-spacing: 0.02rem;
-  background-image: linear-gradient(-137deg, #142855 0%, #4553a4 100%);
-}
-.userShow {
+  background-color: #c78d42;
   width: 100%;
-  height: 1.8rem;
+}
+.searchBox {
+  background-color: #f1f1f1;
+  width: 100%;
+  height: 3.82rem;
+}
+.mu-input.has-icon {
+  padding-left: 1.12rem;
+}
+.mu-input {
+  font-size: 0.32rem;
+  width: 5.12rem;
+}
+.mu-carousel {
+  height: 3.82rem;
+  width: 100%;
   position: relative;
-  margin-top: 0.04rem;
-  background-image: linear-gradient(-137deg, #142855 0%, #4553a4 100%);
-}
-.img {
-  width: 1.2rem;
-  height: 1.2rem;
-  border-radius: 50%;
-  position: absolute;
-  top: 0.32rem;
-  left: 0.32rem;
-}
-.userName {
-  font-family: PingFangSC-Semibold;
-  font-size: 0.36rem;
-  color: #ffffff;
-  width: 4.32rem;
-  height: 0.5rem;
-  position: absolute;
-  top: 0.32rem;
-  left: 1.83rem;
-  height: 0.5rem;
-  text-align: left;
   overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: keep-all;
-  white-space: nowrap;
 }
-.userId {
-  font-size: 0.32rem;
-  font-family: PingFangSC-Regular;
-  color: #ffffff;
-  position: absolute;
-  top: 1.02rem;
-  left: 1.83rem;
-}
-.setting {
-  width: 0.48rem;
-  height: 0.4rem;
-  /* background-color: #4553a4; */
-  position: absolute;
-  top: 0.56rem;
-  right: 0.44rem;
-}
-.FuSao {
+.imgBanners {
   width: 100%;
-  height: 1rem;
-  position: relative;
-  margin-top: 0.04rem;
-  background-image: linear-gradient(-137deg, #142855 0%, #4553a4 100%);
+  opacity: 0.5;
+  filter: alpha(opacity=50); /* 针对 IE8 以及更早的版本 */
 }
-.fuS {
-  width: 3rem;
-  height: 1rem;
-  display: flex;
-  align-items: center;
-}
-.fu {
-  position: absolute;
-  left: 0.32rem;
-}
-.sao {
-  position: absolute;
-  left: 4.2rem;
-}
-.gard {
-  position: absolute;
-  top: 0.26rem;
-  left: 3.76rem;
-  height: 0.48rem;
-  border: 1px solid #ffffff;
-}
-.fuImg {
-  width: 0.48rem;
-  align-items: center;
-  margin-left: 0.5rem;
-}
-.fuN {
-  margin-left: 0.2rem;
-  font-size: 0.28rem;
-  color: #ffffff;
-}
-.Asset {
-  margin-top: 0.32rem;
-  width: 100%;
-  /* height: 8.52rem; */
-  height: 6.9rem;
+.bigBoxSearch {
+  width: 90%;
+  height: 1.3rem;
+  text-align: center;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* 针对 IE8 以及更早的版本 */
   background-color: white;
+  position: fixed;
+  top: 1.02rem;
+  left: 5%;
+  border-radius: 0.1rem;
 }
-.showAll {
-  width: 100%;
-  height: 2.14rem;
+.mu-input {
+  min-height: 1.1rem;
+  display: inline-block;
   position: relative;
-  /* background-color: rgb(33, 41, 41); */
+  color: rgba(0, 0, 0, 0.54);
+  margin-bottom: 0.1rem;
+  padding-bottom: 0.1rem;
+  padding-top: 0.08rem;
+  margin-left: -0.5rem;
+  text-align: left;
 }
-.showNav {
-  width: 100%;
-  height: 0.4rem;
-  display: flex;
-  align-items: center;
-  position: relative;
+.bigBoxSearch >>> .mu-text-field-input {
+  height: 0.84rem;
+  padding: 0.32rem;
+}
+.icon-container {
+  position: absolute;
   top: 0.32rem;
-  /* background-color: rgb(33, 41, 41); */
-}
-.zz {
-  margin-left: 0.32rem;
-  font-size: 0.28rem;
-  color: #333333;
-}
-.zz span {
-  font-size: 0.24rem;
-  color: #999999;
-}
-
-.zzImg1 {
-  width: 0.48rem;
-  position: absolute;
   right: 0.32rem;
 }
-.showMoney {
-  width: 100%;
-  height: 0.56rem;
-  /* background-color: aqua; */
+.material-icons {
+  font-size: 0.58rem;
+}
+.quekBox {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-image: linear-gradient(-137deg, #c78d42 0%, #d6a51f 100%);
+  font-size: 0.38rem;
+  color: white;
+  text-align: center;
+  padding: 0.5rem;
   position: relative;
-  top: 0.4rem;
-  font-size: 0.4rem;
-  color: #1c3672;
-  text-align: left;
-  padding-left: 0.32rem;
+  opacity: 1;
+  z-index: 10000;
+  top: -1rem;
+  left: 37.5%;
+  box-shadow: 0px 0px 0.06rem 0.06rem #918f8f;
 }
-.timeShow {
+.flex-wrapper {
   width: 100%;
-  height: 0.34rem;
-  font-size: 0.24rem;
-  color: #999999;
-  text-align: left;
-  padding-left: 0.32rem;
-  position: relative;
-  top: 0.56rem;
-  /* background-color: aqua; */
+  height: 56px;
+  margin-top: 8px;
 }
-.grads {
-  width: 7.18rem;
-  margin-left: 0.32rem;
-}
-
-.dan1 {
-  position: relative;
-  text-align: left;
-  width: 4.8rem;
-}
-.danb {
-  font-size: 0.28rem;
-  color: #999999;
-}
-.danMoney {
-  font-size: 0.36rem;
-  color: #1c3672;
-}
-.moneyUse {
-  width: 100%;
-  height: 1.28rem;
-  display: flex;
-  align-items: center;
-  padding-left: 0.32rem;
-  position: relative;
-}
-.moneys {
-  width: 1.4rem;
-  height: 0.6rem;
-  border-radius: 2rem;
-  line-height: 0.6rem;
-  font-size: 0.28rem;
-  color: #1c3672;
-  border: 0.02rem solid #4553a4;
-  position: absolute;
-  right: 2.24rem;
-}
-.chong {
-  width: 1.6rem;
-  background-color: #d0ddf5;
-  right: 0.32rem;
-  color: #1c3672;
-  border: none;
-}
-.chong img {
-  width: 0.3rem;
-  margin-right: 0.2rem;
-  position: relative;
-  top: 0.04rem;
-}
-.centerServe {
-  margin: 0.32rem 0 0.9rem 0;
-  width: 100%;
-  height: 4.82rem;
-  background-color: #fff;
-}
-.buttoms {
-  height: 0.1rem;
-  width: 100%;
-}
-.serveTitlie {
-  width: 100%;
-  height: 1.08rem;
-  line-height: 1.08rem;
-  text-align: left;
-  font-size: 0.32rem;
-  padding-left: 0.32rem;
-  color: #333333;
+.flex-demo {
+  width: 200px;
+  height: 32px;
+  background-color: #e0e0e0;
+  text-align: center;
+  line-height: 32px;
+  margin-left: 8px;
 }
 .showServer {
-  margin-top: 0.32rem;
+  margin-top: -0.42rem;
 }
 .grid-cell {
   height: 1.82rem;
-  font-size: 0.28rem;
+
   color: #666666;
 }
 .imgServe {
   height: 0.6rem;
 }
-.grad1 {
-  width: 6.86rem;
-  position: relative;
-  left: 0.32rem;
-  top: -2.2rem;
-}
-.grad2 {
-  width: 0.02rem;
-  height: 2.8rem;
-  position: relative;
-  left: 2.48rem;
-  top: -3.42rem;
-}
-.grad3 {
-  width: 0.02rem;
-  height: 2.8rem;
-  position: relative;
-  left: 5rem;
-  top: -6.22rem;
-}
-.showDeal {
-  width: 6.86rem;
-  /* height: 4.76rem;*/
-  height: 3.16rem;
-  background-color: #f9f9f9;
-  margin: 0.1rem 0 0 0.32rem;
-  position: relative;
-}
-.deal {
+.titleName {
   font-size: 0.28rem;
-  color: #999999;
+  font-family: "Microsoft YaHei";
+}
+.gaids {
+  width: 100%;
+  height: 0.48rem;
+  background-color: #fff;
+}
+.anotherBox {
+  width: 100%;
+  height: 1rem;
+  position: relative;
+  color: #c78d42;
+  font-size: 0.36rem;
+  text-align: center;
+  line-height: 1rem;
+}
+.rightTitle,
+.lightTitle {
+  width: 49%;
+  display: inline-block;
+}
+.garid1 {
   position: absolute;
-  top: 0.32rem;
-  left: 0.32rem;
-}
-
-.numShow {
-  font-size: 0.4rem;
-  color: #666666;
-  position: absolute;
-  left: 0.32rem;
-  top: 0.92rem;
-}
-.d2 {
-  left: 3.42rem;
-}
-.n2 {
-  color: #333333;
-  left: 3.42rem;
-}
-.d3 {
-  top: 1.8rem;
-}
-.n3 {
-  top: 2.4rem;
-}
-.d4 {
-  top: 1.8rem;
-  left: 3.42rem;
-}
-.n4 {
-  color: #333333;
-  top: 2.4rem;
-  left: 3.42rem;
-}
-.d5 {
-  top: 3.28rem;
-}
-.n5 {
-  top: 3.84rem;
-}
-.d6 {
-  top: 3.28rem;
-  left: 3.42rem;
-}
-.n6 {
-  color: #1c3672;
-  top: 3.84rem;
-  left: 3.42rem;
+  border: 0.02rem solid #c78d42;
+  height: 0.8rem;
+  left: 50%;
+  top: 0.1rem;
 }
 </style>

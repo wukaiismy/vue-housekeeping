@@ -22,7 +22,7 @@ body {
   text-align: center;
   color: #2c3e50;
   position: relative;
-  max-width: 7.5rem;
+  /* max-width: 7.5rem; */
   margin: 0 auto;
   font-family: PingFangSC-Regular;
 }

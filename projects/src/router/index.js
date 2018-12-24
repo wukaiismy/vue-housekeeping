@@ -19,6 +19,14 @@ export default new Router({
       meta: {
         title: "demo-主页"
       }
+    },
+    {
+      path: "/MsgList",
+      name: "MsgList",
+      component: () => import("@/components/MessageWall/MsgList"),
+      meta: {
+        title: "demo-疯言墙"
+      }
     }
   ]
 });
