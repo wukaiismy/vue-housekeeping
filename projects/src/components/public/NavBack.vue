@@ -24,12 +24,11 @@ export default {
   color: white;
   height: 0.88rem;
   line-height: 0.88rem;
-  background-image: linear-gradient(-137deg, #c78d42 0%, #d6a51f 100%);
 }
 .backLogo {
   width: 0.4rem;
   position: absolute;
-  top: 0.24rem;
+  top: 0.64rem;
   left: 0.32rem;
 }
 </style>

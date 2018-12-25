@@ -6,6 +6,7 @@ import router from "./router";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { post, get, del, put } from "./httpConfig/http";
+import VueLazyLoad from "vue-lazyload";
 //定义全局变量
 Vue.prototype.$post = post;
 Vue.prototype.$get = get;
@@ -23,6 +24,12 @@ import * as NumFormat from "./common/filters/NumFormat";
 Vue.use(MuseUI);
 
 Vue.use(Loading);
+Vue.use(VueLazyLoad, {
+  preLoad: 1.3,
+  error: require("../static/cw.jpg"), //请求失败后显示的图片"../static/cuowu.gif",
+  loading: require("../static/jiazai.gif"), //"../static/jiazai.gif"
+  attempt: 1 // 加载图片数量
+});
 Vue.config.productionTip = false;
 
 Object.keys(NumFormat).forEach(key => {

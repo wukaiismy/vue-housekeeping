@@ -35,7 +35,7 @@ export default {
 .mu-bottom-item-active {
   padding-top: 0.12rem;
   padding-bottom: 0.1rem;
-  color: #c78d42;
+  color: #ee8018;
 }
 .mu-bottom-item {
   min-width: 1.6rem;

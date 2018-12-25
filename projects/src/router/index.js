@@ -27,6 +27,30 @@ export default new Router({
       meta: {
         title: "demo-疯言墙"
       }
+    },
+    {
+      path: "/NovelStory",
+      name: "NovelStory",
+      component: () => import("@/components/Novel/NovelStory"),
+      meta: {
+        title: "demo-文学小说"
+      }
+    },
+    {
+      path: "/Login",
+      name: "Login",
+      component: () => import("@/components/Login/Login"),
+      meta: {
+        title: "demo-登录"
+      }
+    },
+    {
+      path: "/Reg",
+      name: "Reg",
+      component: () => import("@/components/Login/Reg"),
+      meta: {
+        title: "demo-注册"
+      }
     }
   ]
 });
