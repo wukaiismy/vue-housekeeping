@@ -13,14 +13,15 @@
             <img :src="item" class="imgBanners">
           </mu-carousel-item>
         </mu-carousel>
-      </div>
-      <!-- 搜索框 -->
-      <div class="bigBoxSearch">
-        <mu-text-field v-model="value1"></mu-text-field>
-        <div class="icon-container">
-          <mu-icon value=" youtube_searched_for" color="amber" @click="searchs"></mu-icon>
+        <!-- 搜索框 -->
+        <div class="bigBoxSearch">
+          <mu-text-field v-model="value1"></mu-text-field>
+          <div class="icon-container">
+            <mu-icon value=" youtube_searched_for" color="amber" @click="searchs"></mu-icon>
+          </div>
         </div>
       </div>
+
       <!-- 快速下单按钮 -->
       <div class="quekBox" v-waves @click="jumpMsg">快速下单</div>
       <!-- 下面是菜单部分 -->
@@ -44,7 +45,6 @@
     </div>
     <div class="gaids ga"></div>
     <!-- 底部组件 -->
-    <Foot/>
   </div>
 </template>
 
@@ -101,7 +101,9 @@ export default {
     },
     // 快速下单
     jumpMsg() {
-      console.log("你点击了快速下单");
+      this.$router.push({
+        path: "/QuickOrder"
+      });
     },
     // 菜单选择
     jumpServer(index) {
@@ -111,9 +113,9 @@ export default {
         return;
       }
       if (index == 0) {
-        // this.$router.push({
-        //   path: "/AddCards"
-        // });
+        this.$router.push({
+          path: "/Service"
+        });
       } else if (index == 2) {
         // this.$router.push({
         //   path: "/SaleAfter"
@@ -169,6 +171,7 @@ export default {
   background-color: #f1f1f1;
   width: 100%;
   height: 3.82rem;
+  position: relative;
 }
 .mu-input.has-icon {
   padding-left: 1.12rem;
@@ -195,8 +198,8 @@ export default {
   opacity: 0.7;
   filter: alpha(opacity=70); /* 针对 IE8 以及更早的版本 */
   background-color: white;
-  position: fixed;
-  top: 1.42rem;
+  position: absolute;
+  top: 0.42rem;
   left: 5%;
   border-radius: 0.1rem;
 }
@@ -230,13 +233,14 @@ export default {
   background-image: linear-gradient(-137deg, #ee8018 0%, #fbda61 100%);
   font-size: 0.38rem;
   color: white;
+  display: inline-block;
   text-align: center;
   padding: 0.5rem;
   position: relative;
   opacity: 1;
   z-index: 10000;
   top: -1rem;
-  left: 37.5%;
+  left: 0.1rem;
   box-shadow: 0 0 0.08rem 0 rgba(0, 0, 0, 0.3);
   /* box-shadow: 0px 0px 0.06rem 0.06rem #c4c1c1; */
 }
@@ -255,13 +259,14 @@ export default {
 }
 .showServer {
   margin-top: -0.42rem;
+  background-color: #fff;
 }
 .grid-cell {
   height: 1.82rem;
-
   color: #666666;
 }
 .imgServe {
+  margin-top: 0.32rem;
   height: 0.6rem;
 }
 .titleName {
@@ -271,15 +276,16 @@ export default {
 .gaids {
   width: 100%;
   height: 0.48rem;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .ga {
-  margin: 0.6rem;
+  margin: 0.6rem auto;
 }
 .anotherBox {
   width: 100%;
   height: 0.88rem;
   position: relative;
+  background-color: #fff;
   /* margin-bottom: 1.3rem; */
   color: #ee8018;
   font-size: 0.36rem;

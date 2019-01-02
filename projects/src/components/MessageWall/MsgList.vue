@@ -16,14 +16,14 @@
         <mu-col span="6" v-for="(msg, ind) in list" :key="ind">
           <div class="grid-cell" @click="jumpServer(ind)">
             <div class="addsBox">
-              <mu-icon value="person_add" @click="add(ind)"></mu-icon>
+              <mu-icon value="person_add" color="red" @click="add(ind)"></mu-icon>
             </div>
             <img class="imgServe" v-lazy="msg.image" alt>
             <div class="titleName">{{msg.author}}</div>
             <div class="iconBox">
-              <mu-icon value="thumb_up" @click="zan(ind)"></mu-icon>
+              <mu-icon value="thumb_up" color="red" @click="zan(ind)"></mu-icon>
               <mu-icon value="thumb_down" @click="cai(ind)"></mu-icon>
-              <mu-icon value="device_hub" @click="enjoy(ind)"></mu-icon>
+              <mu-icon value="device_hub" color="primary" @click="enjoy(ind)"></mu-icon>
             </div>
           </div>
         </mu-col>
@@ -156,7 +156,7 @@ export default {
 }
 .grid-cell {
   width: 90%;
-  background-color: #f1f1f1;
+  background-color: white;
   text-align: center;
   margin: 0 auto 20px;
   padding: 0.24rem;

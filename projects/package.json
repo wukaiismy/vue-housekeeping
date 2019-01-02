@@ -13,14 +13,18 @@
     "html2canvas": "^1.0.0-alpha.12",
     "jquery": "^3.3.1",
     "js-cookie": "^2.2.0",
+    "kim-vue-touch": "^1.1.1",
     "muse-ui": "^3.0.0",
     "muse-ui-loading": "^0.2.0",
     "qrcanvas": "^3.0.1",
     "qrcanvas-vue": "^1.2.1",
     "vue": "^2.5.2",
     "vue-awesome-swiper": "^3.1.3",
+    "vue-cute-rate": "^1.0.2",
     "vue-qr": "^1.3.8",
     "vue-router": "^3.0.1",
+    "vue2-countdown": "^1.0.8",
+    "vueg": "^1.3.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

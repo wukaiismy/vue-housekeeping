@@ -1,19 +1,22 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view v-transition/>
+    <Foot v-show="$route.meta.navShow"/>
   </div>
 </template>
 
 <script>
+import Foot from "./components/public/FootNavigation";
 export default {
-  name: "App"
+  name: "App",
+  components: { Foot }
 };
 </script>
 
 <style>
 body {
   font-size: 0.24rem;
-  background: #fff;
+  background: #f9f9f9;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

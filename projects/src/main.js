@@ -7,6 +7,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import { post, get, del, put } from "./httpConfig/http";
 import VueLazyLoad from "vue-lazyload";
+import vueTouch from "kim-vue-touch";
 //定义全局变量
 Vue.prototype.$post = post;
 Vue.prototype.$get = get;
@@ -16,14 +17,16 @@ import $ from "jquery";
 import store from "./store";
 import "./permission";
 import MuseUI from "muse-ui";
-
+import vueg from "vueg";
+import "vueg/css/transition-min.css";
 import "muse-ui/dist/muse-ui.css";
 import "muse-ui-loading/dist/muse-ui-loading.css"; // load css
 import Loading from "muse-ui-loading";
 import * as NumFormat from "./common/filters/NumFormat";
 Vue.use(MuseUI);
-
+Vue.use(vueg, router);
 Vue.use(Loading);
+Vue.use(vueTouch);
 Vue.use(VueLazyLoad, {
   preLoad: 1.3,
   error: require("../static/cw.jpg"), //请求失败后显示的图片"../static/cuowu.gif",
