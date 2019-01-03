@@ -73,7 +73,7 @@
     <div class="workingBox LastBox">
       <mu-row>
         <mu-col span="3" v-for="(items, ind) in buyList" :key="ind">
-          <div class="grid-cell" @click="jumpServer(ind)">
+          <div class="grid-cell" @click="jumpServer1(ind)">
             <img class="imgServe" :src="items.imgurl" alt>
             <div class="titleName name1">{{items.msg}}</div>
           </div>
@@ -146,6 +146,13 @@ export default {
     },
     jumpServer(ind) {
       console.log(ind);
+    },
+    jumpServer1(ind) {
+      if (ind == 2) {
+        this.$router.push({
+          path: "/MyAdds"
+        });
+      }
     }
   }
 };

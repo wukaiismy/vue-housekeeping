@@ -116,10 +116,10 @@ export default {
         this.$router.push({
           path: "/Service"
         });
-      } else if (index == 2) {
-        // this.$router.push({
-        //   path: "/SaleAfter"
-        // });
+      } else if (index == 1) {
+        this.$router.push({
+          path: "/HomeBBs"
+        });
       } else if (index == 3) {
         this.$router.push({
           path: "/NovelStory"
@@ -128,6 +128,10 @@ export default {
         this.$router.push({
           path: "/MsgList"
         });
+      } else if (index == 5) {
+        // this.$router.push({
+        //   path: "/MapDemo"
+        // });
       }
     }
   },

@@ -101,6 +101,33 @@ export default new Router({
         title: "demo-好友列表",
         navShow: true
       }
+    },
+    {
+      path: "/HomeBBs",
+      name: "HomeBBs",
+      component: () => import("@/components/community/HomeBBs"),
+      meta: {
+        title: "demo-社区",
+        navShow: false
+      }
+    },
+    {
+      path: "/MapDemo",
+      name: "MapDemo",
+      component: () => import("@/components/maps/MapDemo"),
+      meta: {
+        title: "demo-MapDemo",
+        navShow: false
+      }
+    },
+    {
+      path: "/MyAdds",
+      name: "MyAdds",
+      component: () => import("@/components/maps/MyAdds"),
+      meta: {
+        title: "demo-MyAdds",
+        navShow: false
+      }
     }
   ]
 });
