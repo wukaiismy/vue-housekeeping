@@ -1,6 +1,6 @@
 # vue-housekeeping
 
-### 自制家政 APP
+### 自制家政 APP客户端
 
 #### 项目地址：https://github.com/wukaiismy/vue-housekeeping
 
@@ -8,7 +8,7 @@
 
 ### 技术栈
 
-> vue 全家桶 、axios、Muse-UI、 flexible.js
+> vue 全家桶 、axios、Muse-UI、 flexible.js、高德地图api
 
 ---
 

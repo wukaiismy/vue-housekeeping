@@ -1,6 +1,6 @@
 # vue-housekeeping
 
-### 自制家政 APP
+### 自制家政 APP客户端
 
 #### 一点一点更新
 
@@ -10,7 +10,7 @@
 
 ### 技术栈
 
-> vue 全家桶 、axios、Muse-UI、 flexible.js
+> vue 全家桶 、axios、Muse-UI、 flexible.js、高德地图api
 
 ---
 
