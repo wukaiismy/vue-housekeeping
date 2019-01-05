@@ -92,9 +92,7 @@ export default {
   },
   methods: {
     backjump() {
-      this.$router.push({
-        path: "/"
-      });
+      this.$router.go(-1);
     },
     countDownS_cb(x) {
       console.log(x);
@@ -210,7 +208,7 @@ export default {
   font-size: 0.38rem;
   color: white;
   line-height: 0.88rem;
-  background-color: #ee8018;
+  background-color: #c2c2c2;
   margin: 0.32rem auto 0.1rem;
 }
 </style>

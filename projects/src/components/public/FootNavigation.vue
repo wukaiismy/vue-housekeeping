@@ -34,17 +34,25 @@ export default {
 
 <style>
 .bb {
-  /* background-color: #d83636; */
+  position: fixed;
+  bottom: 0rem;
+  width: 100%;
+  background: #f9f9f9;
+  height: 1.12rem;
 }
 .mu-bottom-nav,
 .mu-bottom-nav-shift {
   width: 100%;
+  height: 1.12rem;
   background: #f9f9f9;
 }
 .container {
   position: fixed;
   bottom: 0rem;
   z-index: 11;
+
+  padding-right: 0.16rem;
+  padding-left: 0.16rem;
 }
 .mu-bottom-item-active {
   padding-top: 0.12rem;
@@ -64,5 +72,8 @@ export default {
 }
 .mu-bottom-item-active .mu-bottom-item-text {
   font-size: 0.28rem;
+}
+.mu-bottom-item-text {
+  font-size: 0.24rem;
 }
 </style>

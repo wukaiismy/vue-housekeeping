@@ -46,7 +46,7 @@
       <div class="allPerson">共有14个联系人</div>
     </div>
     <div class="bootS1"></div>
-    <div class="bootS"></div>
+    <!-- <div class="bootS"></div> -->
   </div>
 </template>
 

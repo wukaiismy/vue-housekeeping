@@ -102,7 +102,7 @@ export default {
     // 快速下单
     jumpMsg() {
       this.$router.push({
-        path: "/QuickOrder"
+        path: "/SubmitOrders"
       });
     },
     // 菜单选择

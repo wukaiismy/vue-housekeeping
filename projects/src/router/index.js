@@ -58,6 +58,15 @@ export default new Router({
       }
     },
     {
+      path: "/SubmitOrders",
+      name: "SubmitOrders",
+      component: () => import("@/components/business/SubmitOrders"),
+      meta: {
+        title: "demo-快速下单",
+        navShow: false
+      }
+    },
+    {
       path: "/QuickOrder",
       name: "QuickOrder",
       component: () => import("@/components/business/QuickOrder"),
