@@ -1,6 +1,6 @@
 # vue-housekeeping
 
-### 自制家政 APP客户端
+### 自制家政 APP 客户端
 
 #### 一点一点更新
 
@@ -10,7 +10,7 @@
 
 ### 技术栈
 
-> vue 全家桶 、axios、Muse-UI、 flexible.js、高德地图api
+> vue 全家桶 、axios、Muse-UI、 flexible.js、高德地图 api
 
 ---
 
@@ -36,4 +36,5 @@ npm run build
 npm run build --report
 ```
 
-- 待更新-----
+- 目前客户端已完成了大部分主流程页面，待后台做好处理接口问题，另剩余功能会在之后根据情况逐渐增加
+- 未完待续--------
